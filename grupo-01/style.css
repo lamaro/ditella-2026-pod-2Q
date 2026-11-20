@@ -1,0 +1,11 @@
+/* El canvas ocupa toda la pantalla, sin márgenes ni barras de scroll */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #000000;
+}
+
+canvas {
+  display: block;
+}

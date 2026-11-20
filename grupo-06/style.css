@@ -1,0 +1,53 @@
+@font-face {
+  font-family: Cherry;
+  src: url("assets/CherryBombOne-Regular.ttf");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #ffeaf3;
+  color: #79435e;
+  font-family: sans-serif;
+}
+
+#inicio {
+  max-width: 620px;
+  margin: 25px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+h1 {
+  font-family: Cherry;
+  font-size: 34px;
+  font-weight: normal;
+  margin: 15px 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+button {
+  background: #f4bad3;
+  color: #79435e;
+  border: 1px solid #bd7b9a;
+  padding: 12px 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+}
+
+canvas {
+  display: block;
+  width: min(100vw, 1140px, calc(100vh * 760 / 580)) !important;
+  height: auto !important;
+  margin: auto;
+}

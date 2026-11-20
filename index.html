@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POD · TP Final 2026</title>
+  <meta name="description" content="Galería de trabajos finales de POD — Licenciatura en Diseño, Universidad Torcuato Di Tella." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #fafafa;
+      --fg: #0a0a0a;
+      --muted: #6b6b6b;
+      --line: #e5e5e5;
+      --card: #ffffff;
+      --chip: #f1f1f1;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0a0a0a;
+        --fg: #ededed;
+        --muted: #8f8f8f;
+        --line: #232323;
+        --card: #111111;
+        --chip: #1c1c1c;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Geist", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    .mono { font-family: "Geist Mono", ui-monospace, monospace; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    header { border-bottom: 1px solid var(--line); }
+    .top {
+      display: flex; justify-content: space-between; align-items: center;
+      height: 56px; font-size: 13px; color: var(--muted);
+    }
+    .top strong { color: var(--fg); font-weight: 600; letter-spacing: -0.01em; }
+
+    .hero { padding: 72px 0 56px; }
+    .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    h1 {
+      font-size: clamp(40px, 7vw, 84px);
+      font-weight: 600; letter-spacing: -0.045em; line-height: 0.95;
+      margin: 16px 0 24px;
+    }
+    .lead { max-width: 560px; font-size: 17px; color: var(--muted); }
+    .meta {
+      display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 32px;
+      font-size: 12px; color: var(--muted);
+    }
+    .meta span::before { content: "— "; }
+
+    .grid {
+      display: grid; gap: 1px;
+      grid-template-columns: repeat(2, 1fr);
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 80px;
+    }
+    .card {
+      display: flex; flex-direction: column;
+      background: var(--card); color: inherit; text-decoration: none;
+      padding: 16px;
+    }
+    .thumb {
+      position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+      background: #000; border-radius: 6px;
+    }
+    .thumb img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s cubic-bezier(.2,.7,.2,1);
+    }
+    .main { display: flex; flex-direction: column; flex: 1; color: inherit; text-decoration: none; border-radius: 6px; }
+    .main:focus-visible { outline: 2px solid var(--fg); outline-offset: 4px; }
+    .main:hover .thumb img { transform: scale(1.035); }
+    .docs { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 4px 2px; margin-top: 12px; border-top: 1px dashed var(--line); }
+    .doc {
+      font-size: 12px; color: var(--fg); text-decoration: none;
+      padding: 6px 10px; border: 1px solid var(--line); border-radius: 6px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .doc span { color: var(--muted); margin-left: 4px; }
+    .doc:hover { background: var(--chip); border-color: var(--muted); }
+    .play {
+      position: absolute; right: 10px; bottom: 10px;
+      font-size: 12px; padding: 6px 10px; border-radius: 999px;
+      background: rgba(0,0,0,0.72); color: #fff;
+      backdrop-filter: blur(6px);
+      opacity: 0; transform: translateY(4px);
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .main:hover .play, .main:focus-visible .play { opacity: 1; transform: none; }
+
+    .info { padding: 16px 4px 4px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .group { font-size: 12px; color: var(--muted); }
+    h2 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+    .desc { font-size: 14px; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 10px; }
+    .tag { font-size: 11px; padding: 3px 8px; border-radius: 4px; background: var(--chip); color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 40px; font-size: 12px; color: var(--muted);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    }
+    @media (min-width: 1100px) {
+      .grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .wrap { padding: 0 16px; }
+      .hero { padding: 48px 0 40px; }
+      .grid { grid-template-columns: 1fr; }
+      .top .hide-sm { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap top">
+      <strong>POD</strong>
+      <span class="mono hide-sm">Licenciatura en Diseño · Universidad Torcuato Di Tella</span>
+      <span class="mono">2026 · 2C</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <p class="eyebrow mono">Trabajo Práctico Final</p>
+      <h1>Juegos &amp;<br />experiencias<br />interactivas</h1>
+      <p class="lead">Ocho proyectos hechos con p5.js y ml5.js que se juegan con el cuerpo: manos, cara y pose frente a la cámara.</p>
+      <div class="meta mono">
+        <span>POD · Programación Orientada al Diseño</span>
+        <span>Licenciatura en Diseño, UTDT</span>
+        <span>Requiere cámara</span>
+      </div>
+    </section>
+
+    <section class="grid" id="galeria" aria-label="Trabajos"></section>
+  </main>
+
+  <footer class="wrap mono">
+    <span>POD — Licenciatura en Diseño — Universidad Torcuato Di Tella</span>
+    <span>TP Final · 2.º cuatrimestre 2026</span>
+  </footer>
+
+  <script>
+    const trabajos = [
+      { dir: "grupo-01", docs: [{ label: "Documentación", href: "docs/grupo-01-documentacion.pdf" }], titulo: "Bajo el mar", desc: "Cuatro minijuegos submarinos: explotar burbujas, rescatar peces, buscar objetos y juntar monedas.", tags: ["HandPose"] },
+      { dir: "grupo-02", docs: [{ label: "Documentación", href: "docs/grupo-02-documentacion.pdf" }], titulo: "Star Wars", desc: "Elegí bando y usá el índice como sable de luz para bloquear o devolver disparos.", tags: ["HandPose", "FaceMesh"] },
+      { dir: "grupo-03", docs: [{ label: "Documentación", href: "docs/grupo-03-documentacion.pdf" }], titulo: "Mapa de misiones", desc: "Un astronauta desbloquea cinco planetas, una misión por planeta, moviendo todo el cuerpo.", tags: ["BodyPose"] },
+      { dir: "grupo-04", docs: [{ label: "Documentación", href: "docs/grupo-04-documentacion.pdf" }, { label: "Presentación", href: "docs/grupo-04-presentacion.pdf" }], titulo: "Cultivar la luz", desc: "Un jardín que crece con gestos: sembrar, hacer llover, cambiar el cielo y lanzar hechizos.", tags: ["HandPose"] },
+      { dir: "grupo-05", docs: [{ label: "Documentación", href: "docs/grupo-05-documentacion.pdf" }], titulo: "Brickflick", desc: "Guardián de la playa: la palma rebota la pelota y el puño rompe los bloques de arena.", tags: ["HandPose"] },
+      { dir: "grupo-06", docs: [{ label: "Documentación", href: "docs/grupo-06-documentacion.pdf" }], titulo: "Pokémon Pink Adventure", desc: "Elegí un compañero, capturá, acariciá y alimentá con gestos de la cara y la mano.", tags: ["FaceMesh", "HandPose"] },
+      { dir: "grupo-07", docs: [{ label: "Documentación", href: "docs/grupo-07-documentacion.pdf" }], titulo: "Expediente 07", desc: "Juego modo hacker: explorá cámaras de seguridad y bloqueá la filtración antes de que sea tarde.", tags: ["HandPose", "FaceMesh"] },
+      { dir: "grupo-08", docs: [{ label: "Documentación", href: "docs/grupo-08-documentacion.pdf" }], titulo: "Maxi Kiosko", desc: "Tres juegos que se desbloquean en orden: un laberinto, una lluvia de estrellas y una pista dibujada con la boca.", tags: ["HandPose", "FaceMesh"] },
+    ];
+
+    const galeria = document.getElementById("galeria");
+    trabajos.forEach((t, i) => {
+      const n = String(i + 1).padStart(2, "0");
+      const card = document.createElement("article");
+      card.className = "card";
+      card.innerHTML = `
+        <a class="main" href="${t.dir}/index.html" target="_blank" rel="noopener">
+          <div class="thumb">
+            <img src="thumbs/grupo-${i + 1}.jpg" alt="Pantalla inicial de ${t.titulo}" loading="lazy" width="1200" height="750" />
+            <span class="play mono">Jugar ↗</span>
+          </div>
+          <div class="info">
+            <span class="group mono">Grupo ${n}</span>
+            <h2>${t.titulo}</h2>
+            <p class="desc">${t.desc}</p>
+            <div class="tags">${t.tags.map((x) => `<span class="tag mono">${x}</span>`).join("")}</div>
+          </div>
+        </a>
+        <div class="docs">${t.docs.map((d) => `<a class="doc mono" href="${d.href}" target="_blank" rel="noopener">${d.label} <span aria-hidden="true">PDF ↗</span></a>`).join("")}</div>`;
+      galeria.appendChild(card);
+    });
+  </script>
+</body>
+</html>
